@@ -1,0 +1,23 @@
+[user]
+    name = Ethan Catzel
+[alias]
+    s = status --short --branch
+    l = log --oneline --all --decorate --graph --pretty=format:'%C(yellow)%h%Creset %C(green)%d%Creset %s %C(cyan)(%cr)%Creset %C(magenta)<%an>%Creset'
+    ls = log --oneline --all --decorate --graph --stat --pretty=format:'%C(yellow)%h%Creset %C(green)%d%Creset %s %C(cyan)(%cr)%Creset %C(magenta)<%an>%Creset'
+    lsp = log --oneline --all --decorate --graph --stat -p --pretty=format:'%C(yellow)%h%Creset %C(green)%d%Creset %s %C(cyan)(%cr)%Creset %C(magenta)<%an>%Creset'
+    d = diff
+    dcache = diff --cached
+    cm = commit
+    b = branch
+    co = checkout
+    p = push
+    pl = pull
+    pushup = "!git push --set-upstream origin $(git symbolic-ref --short HEAD)"
+[core]
+    editor = vim
+    pager = diff-so-fancy | less --tabs=4 -RFX
+    ignorecase = false
+[pull]
+    rebase = true
+[rebase]
+    autoStash = true
