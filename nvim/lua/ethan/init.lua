@@ -2,6 +2,13 @@ require("ethan.set")
 require("ethan.remap")
 require("ethan.lazy_init")
 
+--vim.api.nvim_create_autocmd("BufWritePre", {
+--    pattern = "*",
+--    callback = function ()
+--        vim.lsp.buf.format()
+--    end
+--})
+
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "terraform",
     callback = function()
