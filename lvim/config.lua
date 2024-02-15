@@ -9,6 +9,10 @@ vim.opt.wrap = false
 lvim.builtin.bufferline.active = false -- Remove tab lines.
 lvim.format_on_save.enabled = true
 
+lvim.keys.normal_mode["<C-d>"] = "<C-d>zz"
+lvim.keys.normal_mode["<C-u>"] = "<C-u>zz"
+lvim.keys.normal_mode["<C-.>"] = "<cmd>lua vim.lsp.buf.code_action()<CR>"
+
 lvim.plugins = {
   {
     "ThePrimeagen/harpoon",
