@@ -14,6 +14,11 @@ lvim.keys.normal_mode["<C-u>"] = "<C-u>zz"
 lvim.keys.normal_mode["<C-.>"] = "<cmd>lua vim.lsp.buf.code_action()<CR>"
 lvim.keys.normal_mode["<leader>s"] = "<cmd>lua vim.diagnostic.open_float()<CR>"
 
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  { name = "black" }
+}
+
 lvim.plugins = {
   {
     "ThePrimeagen/harpoon",
