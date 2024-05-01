@@ -109,8 +109,6 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 -- MY own keymaps.
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>")
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>")
-vim.keymap.set("n", "<leader>w", "<cmd>w<CR>")
-vim.keymap.set("n", "<leader>q", "<cmd>q<CR>")
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -555,16 +553,10 @@ require("lazy").setup({
 		},
 		opts = {
 			notify_on_error = false,
-			format_on_save = function(bufnr)
-				-- Disable "format_on_save lsp_fallback" for languages that don't
-				-- have a well standardized coding style. You can add additional
-				-- languages here or re-enable it for the disabled ones.
-				local disable_filetypes = { c = true, cpp = true }
-				return {
-					timeout_ms = 500,
-					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
-				}
-			end,
+			format_on_save = {
+				lsp_fallback = true,
+				timeout_ms = 500,
+			},
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- Conform can also run multiple formatters sequentially
@@ -572,7 +564,9 @@ require("lazy").setup({
 				--
 				-- You can use a sub-list to tell conform to run *until* a formatter
 				-- is found.
-				-- javascript = { { "prettierd", "prettier" } },
+				javascript = { { "prettierd", "prettier" } },
+				typescript = { { "prettierd", "prettier" } },
+				vue = { { "prettierd", "prettier" } },
 			},
 		},
 	},
