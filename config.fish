@@ -11,7 +11,7 @@ status is-interactive; and pyenv virtualenv-init - | source
 # Custom aliases.
 alias l="ls -la"
 
-source /Users/ethan/.docker/init-fish.sh || true # Added by Docker Desktop
+# source /Users/ethan/.docker/init-fish.sh || true # Added by Docker Desktop
 
 # Set default nvm version.
 set -U nvm_default_vesrion 18
@@ -22,3 +22,7 @@ set --export PATH $BUN_INSTALL/bin $PATH
 
 # brew
 set --export HOMEBREW_NO_INSTALL_FROM_API 1
+
+alias tf=terraform
+alias v=neovim
+
